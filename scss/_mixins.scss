@@ -1,5 +1,6 @@
 // https://khaledkzy.github.io/pixel-vh-vw-converter/
 
+// ===== images ===== \\
 @mixin sm-img {
   position: absolute;
   width: 33vw; // 400px
@@ -11,4 +12,33 @@
   width: 43vw;
   height: 42vw;
   object-fit: cover;
+}
+
+// https://medium.com/codeartisan/breakpoints-and-media-queries-in-scss-46e8f551e2f2
+
+// ===== media queries ===== \\
+
+// mobile
+@mixin sm {
+  @media screen and (max-width: #{($screen-sm-max)}) {
+    @content;
+  }
+}
+// tablets
+@mixin md {
+  @media screen and (max-width: #{($screen-md-max)}) {
+    @content;
+  }
+}
+// large screens
+@mixin lg {
+  @media screen and (max-width: #{($screen-lg-max)}) {
+    @content;
+  }
+}
+// extra large screens 
+@mixin xl {
+  @media screen and (min-width: #{($screen-xl-min)}) {
+    @content;
+  }
 }

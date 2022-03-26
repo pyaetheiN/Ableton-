@@ -36,7 +36,13 @@ img {
 .chevron {
   position: relative;
   margin-left: 7px;
-  margin-top: 9px;
+  margin-top: 0.5625rem;
+}
+
+@media screen and (max-width: 1180px) {
+  .chevron {
+    margin-top: 0.40625rem;
+  }
 }
 
 .chevron::before {
@@ -563,10 +569,16 @@ body {
   margin-top: 1.03125rem;
 }
 
+@media screen and (max-width: 1180px) {
+  .about .cta__info a .chevron {
+    margin-top: 11px;
+  }
+}
+
 .about .cta__info a .chevron::before {
   content: "";
   position: absolute;
-  width: 3px;
+  width: 2px;
   height: 5px;
   background-color: #0000ff;
   top: 0;
@@ -577,7 +589,7 @@ body {
 .about .cta__info a .chevron::after {
   content: "";
   position: absolute;
-  width: 3px;
+  width: 2px;
   height: 5px;
   background-color: #0000ff;
   top: 5px;

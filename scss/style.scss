@@ -3,6 +3,7 @@
 @import "_utils.scss";
 @import "_functions.scss";
 @import "_mixins.scss";
+@import "queries.scss";
 
 *{
   margin: 0;
@@ -13,6 +14,10 @@ body{
   font-family: $jost;
   font-size: 16px;
   color: #000;
+
+  @include md {
+    font-size: 13px;
+  }
 }
 
 // ===== header ===== \\
@@ -30,7 +35,7 @@ body{
   // primary
   &__primary{
     border-bottom: 1px solid rgba(0,0,0,0.1);
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
 
     &-top{
       align-items: center;
@@ -38,6 +43,24 @@ body{
 
       a{
         font-size: 1em;
+
+        @include md {
+          font-size: 1.2em;
+        }
+      }
+      .nav__menu-btn{
+        display: none;
+        font-size: 1.5em;
+        font-weight: 500;
+
+        .icon{
+          font-size: 0.875em;
+          transform: translate(3px, -3px);
+        }
+    
+        @include lg {
+          display: block;
+        }
       }
     }
     &-bottom{
@@ -56,6 +79,10 @@ body{
       a{
         font-size: 0.975em;
         font-weight: 400;
+
+        @include md {
+          font-size: 1.1em;
+        }
       }
       .nav__more-1{
         margin: 2.5rem 0 2rem;
@@ -80,9 +107,17 @@ body{
   &__logo{
     width: 50px;
     margin-bottom: -7px;
+
+    @include md {
+      width: 60px;
+    }
   }
   &__primary-list{
     column-gap: 2rem;
+
+    @include lg {
+      display: none;
+    }
   }
   &__left{
     column-gap: 2rem;
@@ -101,6 +136,9 @@ body{
     column-gap: 1.5rem;
     align-items: center;
 
+    @include lg {
+      display: none;
+    }
     .nav__item{
 
       &:nth-child(1) a{
@@ -114,14 +152,17 @@ body{
 
   // secondary
   &__secondary{
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
 
     &-list{
-      column-gap: 2rem;
+      column-gap: 2em;
     }
     .nav-item{
       font-size: 0.75em;
       
+      @include md {
+        font-size: 1em;
+      }
       .active{
         color: $coral;
       }
@@ -141,12 +182,15 @@ body{
     position: relative;
 
     img{
-      width: rem(1000);
+      width: 92vw;
       margin: 0 auto;
       height: rem(450);
       object-fit: cover;
-    }
 
+      @include sm {
+        padding: 0 3%;
+      }
+    }
     &-title{
       position: absolute;
       top: 50%;
@@ -155,12 +199,20 @@ body{
       font-size: 7.5em;
       color: $coral;
       font-weight: 500;
+
+      @include sm {
+        font-size: 5em;
+      }
     }
   }
   &__info{
     max-width: rem(768);
     margin: 0 auto;
     padding: 6rem 0;
+
+    @include sm {
+      padding: 3rem 0;
+    }
   }
   span{
     color: $blue;
@@ -170,6 +222,7 @@ body{
     font-size: 1.5em;
     line-height: 1.7;
     letter-spacing: 0.5px;
+
   }
   &__desc-2{
     font-size: 1.08em;
@@ -218,6 +271,15 @@ body{
       left: 50%;
       transform: translate(-50%, -50%);
       cursor: pointer;
+
+      @include sm {
+        width: 40px;
+        height: 40px;
+      }
+      @include md {
+        width: 60px;
+        height: 60px;
+      }
     }
     &__player{
       width: 0;
@@ -231,6 +293,17 @@ body{
       border-left: 25px solid #fff;
       // start playing from zero values to understand
       cursor: pointer;
+
+      @include sm {
+        border-top: 10px solid transparent; 
+        border-bottom: 10px solid transparent; 
+        border-left: 15px solid #fff;
+      }
+      @include md {
+        border-top: 15px solid transparent; 
+        border-bottom: 15px solid transparent; 
+        border-left: 20px solid #fff;
+      }
     }
     small{
       font-size: 0.875em;
@@ -261,7 +334,15 @@ body{
       right: 7%;
     }
   }
+  // second banner
+  &__banner-2{
+    width: 92vw;
+    margin: 0 auto;
 
+    @include lg {
+      padding: 0 4%;
+    }
+  }
   // lightblue
   .bg-lightblue{
     width: 63.3vw;
@@ -287,24 +368,52 @@ body{
     margin: 0 auto;
     grid-template-columns: 1fr;
 
+    @include lg {
+      padding: 0 8%;
+
+      &__info{
+        padding: 10%;
+      }
+    }
+    @include xl {
+      grid-template-columns: 0.95fr 1fr;
+      align-items: center;
+
+      &__img{
+        width: 50vw;
+        height: 40vw;
+        object-fit: cover;
+        object-position: 100% 0; // Now let’s change the position of the visible part of the image on the X-axis to reveal the right-most edge of the image
+        // https://www.digitalocean.com/community/tutorials/css-cropping-images-object-fit
+      }
+      &__info{
+        width: 500px;
+        height: 40vw;
+        background-color: $lightblue;
+        // padding: rem(100);
+        padding: 10vw 6.1vw 0;
+      }
+    }
     &__info{
       background-color: $lightblue;
-      padding: rem(100);
 
       a{
         color: $blue;
         font-weight: 500;
-        margin-top: 1rem;
+        margin-top: 2rem;
 
         .chevron{
           position: relative;
           margin-left: 10px;
-          margin-top: 17px;
+          margin-top: rem(16.5);
         
+          @include lg {
+            margin-top: 11px;
+          }
           &::before{
             content: "";
             position: absolute;
-            width: 3px;
+            width: 2px;
             height: 5px;
             background-color: $blue;
             top: 0;
@@ -313,13 +422,16 @@ body{
           &::after{
             content: "";
             position: absolute;
-            width: 3px;
+            width: 2px;
             height: 5px;
             background-color: $blue;
             top: 5px;
             transform: skewX(-35deg);
           }
         }
+      }
+      .about__desc-1{
+        font-size: 1.4em;
       }
     }
   }
@@ -330,6 +442,9 @@ body{
   max-width: rem(1000);
   margin: 6rem auto;
 
+  @include lg {
+    padding: 0 8%;
+  }
   &__title{
     font-size: 3.5em;
     font-weight: 500;
@@ -340,11 +455,34 @@ body{
     grid-template-columns: 1fr 1fr 1.4fr;
     column-gap: 1rem;
     row-gap: 3rem;
+
+    @include lg {
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+      
+      .grid-item-3{
+        order: 1;
+      }
+      .grid-item-1{
+        order: 2;
+      }
+      .grid-item-2{
+        order: 3;
+      }
+      .grid-item-4{
+        order: 4;
+      }
+      .grid-item-5{
+        order: 5;
+      }
+      .grid-item-6{
+        order: 6;
+      }
+    }
   }
   a{
     color: #000;
   }
-
   // first grid item
   &__link{
     line-height: 1.5;
@@ -394,6 +532,7 @@ body{
   &__desc{
     line-height: 1.5;
   }
+  // third grid item
   input{
     border: none;
     outline: none;
@@ -402,7 +541,7 @@ body{
     padding: 8px 13px;
     font-family: $jost;
     font-size: 1em;
-    width: rem(310);
+    width: 70%;
     height: rem(36);
   }
   button{
@@ -411,10 +550,10 @@ body{
     color: #fff;
     font-weight: 600;
     letter-spacing: 0.5px;
-    padding: 8px 15px;
-    height: rem(35.5);
+    padding: 11px 15px 10px;
     margin-left: rem(-5);
   }
+  // sixth grid item
   .selection{
     margin-top: 1rem;
   }
@@ -439,22 +578,41 @@ body{
     align-items: center;
     justify-content: space-between;
 
+    @include lg {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 2rem;
+    }
     .footer__links{
       column-gap: 1rem;
+      align-items: center;
+
+      @include lg {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 5rem;
+      }
     }
     a,p{
       font-size: 0.75em;
       font-weight: 400;
+
+      @include lg {
+        font-weight: 600;
+      }
     }
     svg{
       width: 40px;
     }
-    .flex{
-      align-items: center;
+    .right{
       column-gap: 0.5rem;
+
+      @include lg {
+        flex-direction: row-reverse;
+      }
     }
   }
 }
 
-// media queries
+
 
