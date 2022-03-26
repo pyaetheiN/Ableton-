@@ -29,6 +29,10 @@ img {
   display: grid;
 }
 
+.wrapper {
+  padding: 0 1rem;
+}
+
 .chevron {
   position: relative;
   margin-left: 7px;
