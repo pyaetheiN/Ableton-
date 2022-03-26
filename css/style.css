@@ -759,6 +759,7 @@ body {
   border: none;
   outline: none;
   background-color: #eeeeee;
+  color: #000;
   padding: 0 8px;
   font-family: "Jost", sans-serif;
   font-size: 0.75em;
@@ -836,6 +837,9 @@ body {
 .footer__bottom .right {
   -webkit-column-gap: 0.5rem;
           column-gap: 0.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media screen and (max-width: 1180px) {
