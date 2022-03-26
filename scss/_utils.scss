@@ -1,0 +1,34 @@
+.flex{
+  display: flex;
+}
+.inline-flex{
+  display: inline-flex;
+}
+.grid{
+  display: grid;
+}
+.chevron{
+  position: relative;
+  margin-left: 7px;
+  margin-top: 9px;
+
+  &::before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 3.5px;
+    background-color: #000;
+    top: 0;
+    transform: skewX(40deg);
+  }
+  &::after{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 3.5px;
+    background-color: #000;
+    top: 3px;
+    transform: skewX(-40deg);
+  }
+}
+

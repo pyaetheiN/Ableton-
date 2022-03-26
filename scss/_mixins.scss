@@ -1,0 +1,14 @@
+// https://khaledkzy.github.io/pixel-vh-vw-converter/
+
+@mixin sm-img {
+  position: absolute;
+  width: 33vw; // 400px
+  height: 25vw;
+  object-fit: cover; // object fit only works when both width and height property are applied
+}
+@mixin lg-img {
+  position: absolute;
+  width: 43vw;
+  height: 42vw;
+  object-fit: cover;
+}
